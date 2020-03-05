@@ -92,21 +92,7 @@ export class GeneralView extends Component {
                 )
                 }
             </CardGroup>
-
-            <Table className={showTable} striped bordered hover size="sm">
-                <thead>
-                    <tr>
-                        <th>Order</th>
-                        <th>Movie Name</th>
-                        <th>IMDB Rating</th>
-                        <th>Year</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody className="text-center">
-                    <Movie movieList={this.state.movies}/>
-                </tbody>
-            </Table>
+            <Movie movieList={this.state.movies} showTable={this.state.display}/>
             </div>
         )
     }

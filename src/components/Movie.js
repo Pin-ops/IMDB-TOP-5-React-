@@ -1,9 +1,21 @@
-import React, {Fragment} from 'react'
+import React from 'react';
+import {Table }from 'react-bootstrap'
 
-function Movie({movieList}) {
+function Movie({movieList,showTable}) {
     // const {movieList}=props
+    const classAdi = showTable ? "my-5 tex-center" : "d-none"
     return (
-        <Fragment>
+        <Table className={classAdi} striped bordered hover size="sm">
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Movie Name</th>
+                <th>IMDB Rating</th>
+                <th>Year</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody className="text-center">
            { movieList.map( item =>{
                 return (
                     <tr  key={item[0]}>
@@ -16,7 +28,8 @@ function Movie({movieList}) {
                 )
             } )}
 
-        </Fragment>
+            </tbody>
+        </Table>
     )
 }
 

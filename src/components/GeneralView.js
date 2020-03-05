@@ -78,7 +78,6 @@ export class GeneralView extends Component {
     }
 
     render() {
-        const showTable = this.state.display ? "my-5 tex-center" : "d-none"
         return (
             <div className="container">
             <CardGroup>

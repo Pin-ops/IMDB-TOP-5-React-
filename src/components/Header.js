@@ -7,7 +7,7 @@ function Header () {
             <Navbar.Brand className="text-white" href="/">IMDB</Navbar.Brand>
 
             <Nav className="mr-auto ">
-                <Nav.Link className="text-white" href="/home">Home</Nav.Link>
+                <Nav.Link className="text-white" href="/">Home</Nav.Link>
                 <Nav.Link className="text-white" href="/movies">Movies</Nav.Link>
                 <Nav.Link className="text-white" href="/chart&trends">Chart & Trends</Nav.Link>
                 <Nav.Link className="text-white" href="/tv&videos">TV & Videos</Nav.Link>

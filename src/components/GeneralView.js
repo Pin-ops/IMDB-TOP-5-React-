@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Category from './Category'
-import { CardGroup } from 'react-bootstrap'
+import { CardGroup, Table } from 'react-bootstrap';
+import Movie from './Movie';
 
 const categories = [
     {   id: 1,
@@ -61,19 +62,51 @@ const movieCategoryTop5 = {
 
 
 export class GeneralView extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            display: false,
+            movies:[]
+        }
+    }
+
+    changeCategory = childdengelen =>{
+        this.setState({
+            display: !this.state.display,
+            movies: movieCategoryTop5[childdengelen]
+        })
+    }
+
     render() {
+        const showTable = this.state.display ? "my-5 tex-center" : "d-none"
         return (
-            <div>
+            <div className="container">
             <CardGroup>
                 {
-                    categories.map( item =>
-                       <Category key={item.id} image={item.image} category={item.category} description={item.description} />
-
+                categories.map( item =>
+                    <Category key={item.id}
+                              image={item.image}
+                              category={item.category} description={item.description}
+                              takeCategory={this.changeCategory}
+                    />
                 )
-
                 }
-                </CardGroup>
+            </CardGroup>
 
+            <Table className={showTable} striped bordered hover size="sm">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Movie Name</th>
+                        <th>IMDB Rating</th>
+                        <th>Year</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody className="text-center">
+                    <Movie movieList={this.state.movies}/>
+                </tbody>
+            </Table>
             </div>
         )
     }

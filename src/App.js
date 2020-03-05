@@ -7,7 +7,7 @@ import GeneralView from './components/GeneralView';
 
 function App() {
   return (
-    <div className="container">
+    <div>
      <Header/>
      <GeneralView/>
     </div>

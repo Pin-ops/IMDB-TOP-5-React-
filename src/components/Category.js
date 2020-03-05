@@ -2,16 +2,22 @@ import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 
 function Category(props) {
+
+    const {image,category,description, takeCategory} = props
+
+    const getCategory = ()=>{
+        takeCategory(category.toLowerCase());
+    }
     return (
         <div>
-            <Card style={{ width: '250px' }} className="mx-2">
-                <Card.Img variant="top" src={props.image} width="250px" height="250px" />
+            <Card style={{ width: '12vw' }} className="mx-2">
+                <Card.Img variant="top" src={image} width="100%" height="250px" />
                 <Card.Body>
-                    <Card.Title>{props.category}</Card.Title>
+                    <Card.Title>{category}</Card.Title>
                     <Card.Text>
-                       {props.description}
+                       {description}
                     </Card.Text>
-                    <Button variant="primary">Top 5</Button>
+                    <Button onClick={getCategory} variant="primary">Top 5</Button>
                 </Card.Body>
         </Card>
     </div>
